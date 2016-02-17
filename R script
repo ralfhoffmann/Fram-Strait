@@ -1,1 +1,83 @@
-#In progress
+#Fram Strait data set
+
+#It is planed to use this data sets for an RDA (Redandancy analyses)
+YData=read.csv("C:/Users/rhoffman/Desktop/Ph.D. AWI/Arktis - Fram Strait Expeditionen/All data/R-Statistiken/All_Data/All-Y-removeOutlier.csv", header=T, sep = ";")
+XData=read.csv("C:/Users/rhoffman/Desktop/Ph.D. AWI/Arktis - Fram Strait Expeditionen/All data/R-Statistiken/All_Data/All-X.csv", header=T, sep = ";")
+
+#Schedule:
+#1.Transformation = z-scoring of both
+#Command is
+#scale(x, center=T, scale = T )
+#Questions:
+#Do I have to do this for both?
+#How to perfom the the scoring?
+#     a) For each parameter? --> merging independently from Station and Year
+#     b) For each parameter and Station? --> merging independently from Year
+#     c) For each parameter and Station and Year, because each of them were sampled independantly?
+
+#     Examples for each perfomance
+#     a) scale(YData$DOU, center=T, scale = T )
+
+#2.Outlier identification
+#Command is
+#outlier()
+#Question:
+#How to perform the outlier identification?
+#     For each parameter? --> outlier identification over all Stations and both Years
+#     For each parameter and Station? --> Outlier identification over both Years
+#     For each parameter and Station and Year --> Outlier identification for each sampling event
+
+#3.Process outlier with winsorising = changing the value of an outlier to the next highest or lowest value in the data set that is not an outlier
+#Question:
+#How to do this in R as easy as possible?
+
+#4.Multiple regression model
+#I don't have a clue, how to do this
+
+#5.RDA
+#I don't have a clue, how to do this
+
+
+#In the last jam you said that a t-test (hotellings t-squared test) is needed
+#how and when (at which step, e.g. before or after z-scoring) should it be done?
+
+
+
+#Everything below is producing some boxplots (representing outliers)
+#and some subsets
+#maybe useful...maybe not
+#They are artefacts from a previous and unuseful approache
+
+#boxplot(YData$DOU ~ YData$Station, ylab = "Diffusive oxygen uptake [mmol/m²d]", las = 2)
+#boxplot(YData$TOU ~ YData$Station, ylab = "Total oxygen uptake [mmol/m²d]",las = 2)
+#boxplot(YData$C_org ~ YData$Station, ylab = "Organic carbon [%]", las = 2)
+#boxplot(YData$Chloro_A ~ YData$Station, ylab = "Chl. a [µg/ml sediment]",las = 2)
+#boxplot(YData$Phaeo ~ YData$Station, ylab = "Phaeo [µg/ml sediment]",las = 2)
+#boxplot(YData$CPE ~ YData$Station, ylab = "CPE [µg/ml sediment]",las = 2)
+#boxplot(YData$FDA ~ YData$Station, ylab = "FDA [nmol/ml*h]",las = 2)
+#boxplot(YData$Org_Matter ~ YData$Station, ylab = "Organic matter [%]", las = 2)
+#boxplot(YData$Protein ~ YData$Station, ylab = "Protein [µg/ml sediment]",las = 2)
+#boxplot(YData$TBN ~ YData$Station, ylab = "Total bacteria number [Cells/ml sediment]",las = 2)
+#boxplot(YData$Lipids ~ YData$Station, ylab = "Lipids [nmol/ml sediment]",las = 2)
+#summary(YData)
+#hist(YData$C_org, ylab = "Orgnaic carbon [%]")
+#outlier(YData$C_org)
+
+
+
+#EGI <- subset(YData, YData$Station =="EGI")
+#EGII <- subset(YData, YData$Station =="EGII")
+#EGIII <- subset(YData, YData$Station =="EGIII")
+#EGIV <- subset(YData, YData$Station =="EGIV")
+#EHIV_bis <- subset(YData, YData$Station =="EGIV_bis")
+#N5 <- subset (YData, YData$Station =="N5")
+
+#HGI <- subset(YData, YData$Station =="HGI")
+#HGII <- subset(YData, YData$Station =="HGII")
+#HGIII <- subset(YData, YData$Station =="HGIII")
+#HGIV <- subset(YData, YData$Station =="HGIV")
+#SVI <- subset(YData, YData$Station =="SVI")
+#SVIV <- subset(YData, YData$Station =="SVIV")
+
+#HGI_Lander <- subset(YData, YData$Station =="HGI_Lander")
+#HGIV_Lander <- subset(YData, YData$Station =="HGIV_Lander")
