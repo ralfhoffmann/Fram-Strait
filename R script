@@ -9,7 +9,7 @@ XData=read.csv("C:/Users/rhoffman/Desktop/Ph.D. AWI/Arktis - Fram Strait Expedit
 #Command is
 #scale(x, center=T, scale = T )
 #Questions:
-#Do I have to do this for both?
+#Do I have to do this for both- YData and X-Data?
 #How to perfom the the scoring?
 #     a) For each parameter? --> merging independently from Station and Year
 #     b) For each parameter and Station? --> merging independently from Year
